@@ -1,0 +1,86 @@
+<template>
+  <header class="Header">
+    <div class="Header__left">
+      <nuxt-link
+        to="/"
+        class="Header__logo"
+      >Break</nuxt-link>
+    </div>
+    <div class="Header__right">
+      <ul class="Header__nav">
+        <li class="Header__navItem">
+          <nuxt-link
+            to="/about"
+            class="Header__link"
+          >About
+          </nuxt-link>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/break_guide/"
+            target="_blank"
+            class="Header__link"
+          >Instagram
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="postcss">
+@import "../assets/css/settings/vars";
+
+.Header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 120px;
+  padding-right: var(--bsu);
+  padding-left: var(--bsu);
+
+  @media (--sm) {
+    padding-right: var(--bsu-xl);
+    padding-left: var(--bsu-xl);
+  }
+}
+
+.Header__logo {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  line-height: 1;
+  font-weight: normal;
+  letter-spacing: .025em;
+  text-transform: lowercase;
+}
+
+.Header__nav {
+  margin-bottom: 0;
+}
+
+.Header__link {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  letter-spacing: .05em;
+  text-transform: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color var(--trans), color var(--trans);
+
+  &:hover,
+  &:active {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+}
+</style>
