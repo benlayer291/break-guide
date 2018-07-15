@@ -13,7 +13,7 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/,
-        });
+        })
       }
     },
     // Process css with postcss plugins
@@ -66,4 +66,4 @@ module.exports = {
   ** Nuxt mode
   */
   mode: 'universal',
-};
+}

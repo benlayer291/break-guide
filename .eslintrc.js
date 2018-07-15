@@ -22,5 +22,8 @@ module.exports = {
   // add your custom rules here
   rules: {
     'global-require': 'off',
+    'import/no-unresolved': 'off',
+    'max-len': 'off',
+    'semi': [2, 'never'],
   }
 }

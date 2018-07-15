@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    ".nuxt": true,
+    "assets": true,
+    // "components": true,
+    // "layouts": true,
+    "middleware": true,
+    // "pages": true,
+    "plugins": true,
+    "static": true,
+    "store": true,
+  }
+}
