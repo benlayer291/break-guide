@@ -104,14 +104,14 @@ h6,
 p,
 address {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: normal;
   letter-spacing: .05em;
   text-transform: none;
 
   @media (--sm) {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   & a {
@@ -126,14 +126,14 @@ address {
 
 .t-para {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: normal;
   letter-spacing: .05em;
   text-transform: none;
 
   @media (--sm) {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 

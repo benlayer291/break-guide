@@ -22,7 +22,7 @@
 
   /* Base Max Width */
   --bmw: 1440px;
-  --gutter: 20px;
+  --gutter: 40px;
   --column: calc(1 / 12 * 100%);
 
   /* Font */

@@ -1,5 +1,8 @@
 <template>
-  <header class="Header">
+  <header
+    :class="{ 'Header--home': logoHidden }"
+    :style="{ 'opacity': opacity }"
+    class="Header">
     <div class="Header__left">
       <nuxt-link
         to="/"
@@ -31,6 +34,51 @@
 <script>
 export default {
   name: 'Header',
+
+  data() {
+    return {
+      logoHidden: false,
+      opacity: 1,
+      scrollPosition: 0,
+    }
+  },
+
+  watch: {
+    $route() {
+      this.logoHidden = this.$nuxt.$route.path === '/'
+      return this.logoHidden
+    },
+  },
+
+  created() {
+    this.logoHidden = this.$nuxt.$route.path === '/'
+    return this.logoHidden
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+
+  destroyed() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+
+  methods: {
+    onScroll() {
+      const prevScrollPosition = this.scrollPosition
+      const scrollPosition = window.scrollY
+
+      if (scrollPosition > prevScrollPosition && scrollPosition > 120) {
+        this.opacity = 0
+      } else {
+        this.opacity = 1
+      }
+
+      this.scrollPosition = scrollPosition
+
+      return this.opacity
+    },
+  },
 }
 </script>
 
@@ -39,6 +87,7 @@ export default {
 
 .Header {
   position: fixed;
+  z-index: var(--z1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,6 +95,7 @@ export default {
   height: 120px;
   padding-right: var(--bsu);
   padding-left: var(--bsu);
+  transition: opacity .3s ease;
 
   @media (--sm) {
     padding-right: var(--bsu-xl);
@@ -60,6 +110,10 @@ export default {
   font-weight: normal;
   letter-spacing: .025em;
   text-transform: lowercase;
+
+  .Header--home & {
+    display: none;
+  }
 }
 
 .Header__nav {

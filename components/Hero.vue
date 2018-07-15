@@ -1,6 +1,10 @@
 <template>
-  <div class="Hero  wrapper">
-    <h1 class="Hero__title">{{ title }}</h1>
+  <div
+    :class="{ 'is-scrolled': isScrolled }"
+    class="Hero">
+    <h1
+      class="Hero__title"
+    >{{ title }}</h1>
   </div>
 </template>
 
@@ -15,9 +19,32 @@ export default {
     },
   },
 
+  data() {
+    return {
+      isScrolled: false,
+    }
+  },
+
   computed: {
     title() {
       return this.fields.title ? this.fields.title : ''
+    },
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+
+  destroyed() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+
+  methods: {
+    onScroll() {
+      const scrollPosition = window.scrollY
+      this.isScrolled = scrollPosition > 120
+
+      return this.isScrolled
     },
   },
 }
@@ -31,14 +58,26 @@ export default {
   align-items: center;
   justify-content: flex-start;
   height: calc(100vh - 120px);
+  padding-right: var(--bsu);
+  padding-left: var(--bsu);
 
   @media (--sm) {
     height: calc(100vh - 180px);
+    padding-right: var(--bsu-xl);
+    padding-left: var(--bsu-xl);
   }
 
   &__title {
+    position: fixed;
+    top: 0;
+    z-index: var(--z1);
     margin-top: 50vh;
     margin-bottom: 0;
+    transition: color .9s ease;
+
+    .is-scrolled & {
+      color: color-mod(var(--blue) a(.25));
+    }
   }
 }
 </style>
