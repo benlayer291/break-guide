@@ -26,19 +26,19 @@
 .guide {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
-  transform: translate3d(0, 0, 0);
-  width: 100%;
+  left: 0;
   z-index: 1000;
+  width: 100%;
   opacity: 0;
   pointer-events: none;
+  transform: translate3d(0, 0, 0);
   transition: var(--trans);
 }
 
 .guide__item {
   height: 100vh;
-  background-color: color-mod(pink a(0.5));
+  background-color: color-mod(pink a(.5));
 }
 
 .guide__toggle {
@@ -48,29 +48,28 @@
   z-index: var(--z5);
   width: var(--bsu-lg);
   height: var(--bsu-lg);
-  background-color: var(--white);
-  border-radius: 50%;
-  cursor: pointer;
   opacity: 1;
+  background-color: color-mod(var(--grey1) a(.5));
+  border-radius: 50%;
+  box-shadow:
+    0 2px 5px 0 color-mod(var(--grey1) a(.15)),
+    0 2px 10px 0 color-mod(var(--grey1) a(.2));
+  cursor: pointer;
   outline: none;
   transform: translate3d(0, 0, 0);
   transition: var(--trans);
-  box-shadow:
-      0 2px 5px 0 color-mod(var(--grey1) a(0.15)),
-      0 2px 10px 0 color-mod(var(--grey1) a(0.2));
-  background-color: color-mod(var(--grey1) a(0.5));
 
   &:hover {
     box-shadow:
-      0 5px 11px 0 color-mod(var(--grey1) a(0.2)),
-      0 4px 15px 0 color-mod(var(--grey1) a(0.25));
+      0 5px 11px 0 color-mod(var(--grey1) a(.2)),
+      0 4px 15px 0 color-mod(var(--grey1) a(.25));
   }
 
   &:active,
   &:checked {
     box-shadow:
-      0 2px 5px 0 color-mod(var(--grey1) a(0.15)),
-      0 2px 10px 0 color-mod(var(--grey1) a(0.2));
+      0 2px 5px 0 color-mod(var(--grey1) a(.15)),
+      0 2px 10px 0 color-mod(var(--grey1) a(.2));
   }
 
   &:checked + .guide {

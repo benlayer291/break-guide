@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <section class="block  wrapper">
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
@@ -66,7 +66,7 @@
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>

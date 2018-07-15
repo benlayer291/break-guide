@@ -1,9 +1,7 @@
 <template>
   <div>
     <SvgSprite />
-    <main>
-      <nuxt/>
-    </main>
+    <nuxt/>
     <Guide />
   </div>
 </template>

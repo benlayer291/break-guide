@@ -24,14 +24,21 @@ export default {
 </script>
 
 <style lang="postcss">
+@import "../assets/css/settings/vars";
+
 .Hero {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 120px);
+
+  @media (--sm) {
+    height: calc(100vh - 180px);
+  }
 
   &__title {
-    margin-top: calc(1em + 80px);
+    margin-top: 50vh;
+    margin-bottom: 0;
   }
 }
 </style>
