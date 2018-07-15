@@ -32,26 +32,26 @@ export default {
   }
 
   &:first-child .Next__item-text {
-    color: var(--grey2);
     border-bottom: 1px solid var(--grey2);
+    color: var(--grey2);
 
     &:hover,
     &:active {
-      color: var(--black);
-      border-color: var(--black);
+      border-color: var(--blue);
+      color: var(--blue);
     }
   }
 }
 
 .Next__item-text {
-  color: var(--black);
   border-bottom: 1px solid var(--black);
+  color: var(--black);
   transition: color var(--trans), border-color var(--trans);
 
   &:hover,
   &:active {
-    color: var(--grey2);
-    border-color: var(--grey2);
+    border-color: var(--blue);
+    color: var(--blue);
   }
 }
 </style>
