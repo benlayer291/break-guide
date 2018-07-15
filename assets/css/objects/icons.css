@@ -1,0 +1,14 @@
+/*------------------------------------*\
+  #Icons
+\*------------------------------------*/
+
+.i-social {
+  width: 20px;
+  height: 20px;
+  color: var(--grey1);
+  transition: color var(--trans);
+
+  &:hover {
+    color: var(--blue);
+  }
+}

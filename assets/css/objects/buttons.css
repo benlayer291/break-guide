@@ -1,0 +1,33 @@
+/* ------------------------------------*\
+  #Buttons
+\* ------------------------------------ */
+
+.button {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .05em;
+  text-transform: lowercase;
+  text-align: center;
+  padding: .95em 2.5em .9em;
+  border: 1px solid var(--grey1);
+  border-radius: var(--radius);
+  transition: color var(--trans), background-color var(--trans);
+  background-color: var(--white);
+  color: var(--grey1);
+
+  &:matches(:hover, :focus) {
+    background-color: var(--grey1);
+    color: var(--white);
+  }
+
+  &--solid {
+    background-color: var(--grey1);
+    color: var(--white);
+
+    &:matches(:hover, :focus) {
+      background-color: var(--white);
+      color: var(--grey1);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+/* ------------------------------------ *\
+  #Blocks
+\* ------------------------------------ */
+
+.block {
+  padding-top: var(--bsu-lg);
+  padding-bottom: calc(var(--bsu-lg) - var(--bsu));
+
+  @media (--sm) {
+    padding-top: var(--bsu-xl);
+    padding-bottom: calc(var(--bsu-xl) - var(--bsu));
+  }
+
+  & + .block {
+    padding-top: 0;
+  }
+}

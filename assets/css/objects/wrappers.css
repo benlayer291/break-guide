@@ -1,0 +1,16 @@
+/*------------------------------------*\
+  #Wrappers
+\*------------------------------------*/
+
+.wrapper {
+  max-width: var(--bmw);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--bsu);
+  padding-right: var(--bsu);
+
+  @media(--sm) {
+    padding-left: var(--bsu-xl);
+    padding-right: var(--bsu-xl);
+  }
+}

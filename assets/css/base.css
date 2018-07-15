@@ -28,10 +28,12 @@
 /**
  * Objects.
  */
-
-@import "objects/wrappers";
-@import "objects/blocks";
-@import "objects/media";
+  
+  @import "objects/buttons";
+  @import "objects/blocks";
+  @import "objects/icons";
+  @import "objects/media";
+  @import "objects/wrappers";
 
 /**
  * Vendor.
