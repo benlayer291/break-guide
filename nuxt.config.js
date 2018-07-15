@@ -18,6 +18,7 @@ module.exports = {
     },
     // Process css with postcss plugins
     postcss: [
+      require('postcss-import'),
       require('postcss-preset-env')({
         browsers: ['last 2 versions', 'ie >= 11'],
       }),
@@ -50,10 +51,13 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'A journal site built with Nuxt.js'
+        content: 'A journal site built with Nuxt.js',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Abril+Fatface|Anonymous+Pro' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
   /*
   ** Customize the progress bar color
