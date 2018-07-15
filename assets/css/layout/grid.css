@@ -24,7 +24,7 @@
 
 .grid--rigid {
   justify-content: flex-start;
-  margin-left: var(--gutter);
+  margin-left: calc(var(--gutter) * -1);
 
   & > .grid__item {
     padding-left: var(--gutter);
@@ -37,6 +37,10 @@
 
 .u-1\/2 {
   width: calc(1 / 2 * 100%);
+}
+
+.u-1\/12 {
+  width: calc(1 / 12 * 100%);
 }
 
 @media (--xs) {
