@@ -1,0 +1,109 @@
+/* ------------------------------------*\
+  #Grid
+\*------------------------------------ */
+
+.grid {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.grid__item {
+  flex: 0 0 auto;
+  width: 100%;
+
+  & img {
+    width: 100%;
+  }
+}
+
+/**
+ * Modifiers
+ */
+
+.grid--rigid {
+  justify-content: flex-start;
+  margin-left: var(--gutter);
+
+  & > .grid__item {
+    padding-left: var(--gutter);
+  }
+}
+
+/**
+ * Widths
+ */
+
+.u-1\/2 {
+  width: calc(1 / 2 * 100%);
+}
+
+@media (--xs) {
+  .u-1\/2\@xs {
+    width: calc(1 / 2 * 100%);
+  }
+  .u-1\/3\@xs {
+    width: calc(1 / 3 * 100%);
+  }
+  .u-1\/4\@xs {
+    width: calc(1 / 4 * 100%);
+  }
+  .u-3\/4\@xs {
+    width: calc(3 / 4 * 100%);
+  }
+  .u-whole\@xs {
+    width: 100%;
+  }
+}
+
+@media (--sm) {
+  .u-1\/2\@sm {
+    width: calc(1 / 2 * 100%);
+  }
+  .u-1\/3\@sm {
+    width: calc(1 / 3 * 100%);
+  }
+  .u-1\/4\@sm {
+    width: calc(1 / 4 * 100%);
+  }
+  .u-3\/4\@sm {
+    width: calc(3 / 4 * 100%);
+  }
+  .u-whole\@sm {
+    width: 100%;
+  }
+}
+
+@media (--md) {
+  .u-1\/2\@md {
+    width: calc(1 / 2 * 100%);
+  }
+  .u-1\/3\@md {
+    width: calc(1 / 3 * 100%);
+  }
+  .u-1\/4\@md {
+    width: calc(1 / 4 * 100%);
+  }
+  .u-3\/4\@md {
+    width: calc(3 / 4 * 100%);
+  }
+  .u-whole\@md {
+    width: 100%;
+  }
+}
+
+@media (--lg) {
+  .u-1\/2\@lg {
+    width: calc(1 / 2 * 100%);
+  }
+  .u-1\/3\@lg {
+    width: calc(1 / 3 * 100%);
+  }
+  .u-1\/4\@lg {
+    width: calc(1 / 4 * 100%);
+  }
+  .u-3\/4\@lg {
+    width: calc(3 / 4 * 100%);
+  }
+}
