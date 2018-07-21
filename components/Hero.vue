@@ -69,9 +69,8 @@ export default {
 
   &__title {
     position: fixed;
-    top: 0;
+    top: calc(50% - .7em);
     z-index: var(--z1);
-    margin-top: 50vh;
     margin-bottom: 0;
     transition: color .9s ease;
 

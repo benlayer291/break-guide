@@ -1,12 +1,17 @@
 <template>
-  <footer class="Footer">
+  <footer
+    :class="{'is-fixed': onHome }"
+    class="Footer">
     <div class="Footer__left">
       <button
-        class="Footer__link"
+        :class="{'is-hidden': onHome }"
+        class="Footer__link  Footer__link--anchor"
         type="button">Back to top</button>
     </div>
     <div class="Footer__right">
-      <ul class="Footer__list">
+      <ul
+        :class="{'is-hidden': onHome }"
+        class="Footer__list">
         <li class="Footer__listItem">
           <a
             href="#"
@@ -56,6 +61,20 @@
 <script>
 export default {
   name: 'Footer',
+
+  data() {
+    return {
+      onHome: this.$nuxt.$route.name === 'index',
+    }
+  },
+
+  watch: {
+    $route() {
+      console.log('route changed')
+      this.fixed = this.$nuxt.$route.name === 'index'
+      return this.fixed
+    },
+  },
 }
 </script>
 
@@ -72,6 +91,14 @@ export default {
 
   @media (--sm) {
     padding: var(--bsu-xl) var(--bsu-xl) calc(var(--bsu-xl) - var(--bsu));
+  }
+
+  &.is-fixed {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -110,6 +137,10 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   margin-bottom: 0;
+
+  &.is-hidden {
+    display: none;
+  }
 }
 
 .Footer__listItem {
@@ -135,6 +166,14 @@ export default {
   &:active {
     border-color: var(--blue);
     color: var(--blue);
+  }
+}
+
+.Footer__link--anchor {
+  display: inline-block;
+
+  &.is-hidden {
+    display: none;
   }
 }
 </style>

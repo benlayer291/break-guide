@@ -1,19 +1,15 @@
 <template>
   <main>
-    <Hero
-      :fields="{
-        title: 'Break'
-      }"
-    />
+    <List />
   </main>
 </template>
 
 <script>
-import Hero from '@/components/Hero.vue'
+import List from '@/components/List.vue'
 
 export default {
   components: {
-    Hero,
+    List,
   },
 }
 </script>

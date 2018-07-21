@@ -28,16 +28,18 @@
 /**
  * Objects.
  */
-  
-  @import "objects/buttons";
-  @import "objects/blocks";
-  @import "objects/icons";
-  @import "objects/media";
-  @import "objects/wrappers";
+
+@import "objects/buttons";
+@import "objects/blocks";
+@import "objects/icons";
+@import "objects/media";
+@import "objects/wrappers";
 
 /**
  * Vendor.
  */
+
+@import "vendor/swiper";
 
 /**
  * Pages.

@@ -87,6 +87,8 @@ export default {
 
 .Header {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: var(--z1);
   display: flex;
   align-items: center;
