@@ -112,9 +112,11 @@ export default {
   font-weight: normal;
   letter-spacing: .025em;
   text-transform: lowercase;
+  opacity: 1;
+  transition: opacity 900ms cubic-bezier(.645, .045, .355, 1);
 
   .Header--home & {
-    display: none;
+    opacity: 0;
   }
 }
 
