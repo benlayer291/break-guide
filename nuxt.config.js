@@ -37,17 +37,7 @@ const getRoutesByType = type => (
     })
     .then((res) => {
       const entries = res.items
-      let routes
-      if (type === 'page') {
-        routes = mapEntriesToRoutes(entries, type, [
-          'homepage',
-          'shop',
-          'collections',
-          'stories',
-        ])
-      } else {
-        routes = mapEntriesToRoutes(entries, type)
-      }
+      const routes = mapEntriesToRoutes(entries, type)
 
       return routes
     })
@@ -307,7 +297,10 @@ module.exports = {
   /*
   ** Modules
   */
-  modules: ['@nuxtjs/markdownit'],
+  modules: [
+    '@nuxtjs/markdownit',
+    '@nuxtjs/sitemap',
+  ],
 
   markdownit: {
     breaks: true,
@@ -315,6 +308,13 @@ module.exports = {
     injected: true,
     xhtmlOut: true,
   },
+
+  sitemap: {
+    exclude: ['/styleguide'],
+    generate: true,
+    routes: dynamicRoutes,
+  },
+
   /*
   ** Plugins
   */
