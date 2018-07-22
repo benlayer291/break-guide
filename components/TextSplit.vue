@@ -2,7 +2,7 @@
   <section
     v-observe-visibility="{
       callback: setInView,
-      intersection: { threshold: 0.25 }
+      intersection: { threshold: 0.1 }
     }"
     :class="{
       'js-in-view': inView,
