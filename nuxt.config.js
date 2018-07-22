@@ -1,6 +1,69 @@
+const Contentful = require('contentful')
+
 const { getConfigForKeys } = require('./lib/envConfig.js')
 
 const keys = getConfigForKeys(['CTF_SPACE_ID', 'CTF_CDA_ACCESS_TOKEN'])
+
+const contentful = Contentful.createClient({
+  accessToken: keys.CTF_CDA_ACCESS_TOKEN,
+  space: keys.CTF_SPACE_ID,
+})
+
+/*
+** Nuxt generate dynamic routes helper functions
+*/
+const mapEntriesToRoutes = (entries, type = '', omittedEntries = []) => {
+  const routes = entries.map((entry) => {
+    let route
+
+    if (omittedEntries.includes(entry.fields.slug)) {
+      route = false
+    } else if (type && type !== 'page') {
+      route = `/${type}/${entry.fields.slug}`
+    } else {
+      route = `/${entry.fields.slug}`
+    }
+
+    return route
+  })
+
+  return routes
+}
+
+const getRoutesByType = type => (
+  contentful
+    .getEntries({
+      content_type: type,
+    })
+    .then((res) => {
+      const entries = res.items
+      let routes
+      if (type === 'page') {
+        routes = mapEntriesToRoutes(entries, type, [
+          'homepage',
+          'shop',
+          'collections',
+          'stories',
+        ])
+      } else {
+        routes = mapEntriesToRoutes(entries, type)
+      }
+
+      return routes
+    })
+)
+
+const dynamicRoutes = () => (
+  Promise.all([
+    getRoutesByType('break'),
+    getRoutesByType('page'),
+  ]).then((res) => {
+    const routesArray = res
+    const dynamicRoutes = [].concat(...routesArray).filter(Boolean)
+
+    return dynamicRoutes
+  })
+)
 
 module.exports = {
   /*
@@ -17,7 +80,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/,
+          exclude: /(node_modules)/
         })
       }
     },
@@ -28,9 +91,9 @@ module.exports = {
       require('postcss-nested')(),
       require('postcss-preset-env')({
         stage: 1,
-        browsers: ['last 2 versions', 'ie >= 11'],
-      }),
-    ],
+        browsers: ['last 2 versions', 'ie >= 11']
+      })
+    ]
   },
   /*
   ** CSS
@@ -51,6 +114,7 @@ module.exports = {
   */
   generate: {
     fallback: true, // Use 404.html on Netlify
+    routes: dynamicRoutes,
     subFolders: false,
   },
   /*
@@ -68,7 +132,11 @@ module.exports = {
       },
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Abril+Fatface|Anonymous+Pro' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Abril+Fatface|Anonymous+Pro'
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
@@ -83,9 +151,7 @@ module.exports = {
   /*
   ** Modules
   */
-  modules: [
-    '@nuxtjs/markdownit',
-  ],
+  modules: ['@nuxtjs/markdownit'],
 
   markdownit: {
     breaks: true,
