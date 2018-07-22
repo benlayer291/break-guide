@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="{ 'is-scrolled': isScrolled }"
+    :class="{
+      'is-scrolled': isScrolled,
+      'is-hidden': footerIsInView
+    }"
     class="Hero">
     <h1
       class="Hero__title"
@@ -9,6 +12,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Hero',
 
@@ -26,6 +31,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      footerIsInView: 'footer/getInView',
+    }),
+
     title() {
       return this.fields.title ? this.fields.title : ''
     },
@@ -72,10 +81,15 @@ export default {
     top: calc(50% - .7em);
     z-index: var(--z1);
     margin-bottom: 0;
-    transition: color .9s ease;
+    opacity: 1;
+    transition: opacity .25s ease, color .9s ease;
 
     .is-scrolled & {
       color: color-mod(var(--blue) a(.25));
+    }
+
+    .is-hidden & {
+      opacity: 0;
     }
   }
 }

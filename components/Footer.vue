@@ -1,5 +1,6 @@
 <template>
   <footer
+    v-observe-visibility="setInView"
     :class="{'is-hidden': onHome }"
     class="Footer">
     <div class="Footer__left">
@@ -39,6 +40,7 @@
 
 <script>
 import jump from 'jump.js'
+import { mapMutations } from 'vuex'
 import { createClient } from '@/plugins/contentful'
 
 const contentful = createClient()
@@ -73,14 +75,18 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      setInView: 'footer/setInView',
+    }),
+
     backToTop() {
-      const top = 'main'
       const easing = function easeInOutExpo(t, b, c, d) {
         if (t==0) return b // eslint-disable-line
         if (t==d) return b+c // eslint-disable-line
         if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b // eslint-disable-line
         return c/2 * (-Math.pow(2, -10 * --t) + 2) + b // eslint-disable-line
       }
+      const top = 'main'
 
       return jump(top, {
         duration: 250,

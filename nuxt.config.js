@@ -86,5 +86,9 @@ module.exports = {
     {
       src: '@/plugins/contentful',
     },
+    {
+      src: '@/plugins/observe',
+      ssr: false,
+    },
   ],
 }

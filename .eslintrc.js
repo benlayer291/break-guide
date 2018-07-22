@@ -25,8 +25,9 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'max-len': 'off',
-    'no-shadow': 'off',
+    'no-console': 'off',
     'no-param-reassign': 'off',
+    'no-shadow': 'off',
     'semi': [2, 'never'],
   }
 }
