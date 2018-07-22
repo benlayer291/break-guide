@@ -1,20 +1,20 @@
 <template>
   <li
-    :class="{
+    :class="[{
       'is-active': (activeIndex - 1) === index,
       'is-active--hover': hoverIndex === index
-    }"
+    }, `List__image--${index}`]"
     class="List__image"
   >
     <style>
-      .List__image {
+      .List__image--{{ index }} {
       top: 50%;
       left: 0%;
       width: 100%;
       }
 
       @media only screen and (min-width: 500px) {
-      .List__image {
+      .List__image--{{ index }} {
       top: {{ top }}%;
       left: {{ left }}%;
       width: {{ width }}%;
