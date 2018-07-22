@@ -1,5 +1,14 @@
 <template>
-  <section class="ImageSplit  block  wrapper">
+  <section
+    v-observe-visibility="{
+      callback: setInView,
+      intersection: { threshold: 0.25 }
+    }"
+    :class="{
+      'js-in-view': inView,
+      'js-out-of-view': !inView
+    }"
+    class="ImageSplit  block  wrapper">
     <div class="ImageSplit__inner  grid  grid--rigid">
       <div class="ImageSplit__item  grid__item  u-1/2@sm">
         <div
@@ -38,6 +47,12 @@ export default {
     },
   },
 
+  data() {
+    return {
+      inView: false,
+    }
+  },
+
   computed: {
     imageOne() {
       return this.fields.imageOne && this.fields.imageOne.fields ? this.fields.imageOne.fields : false
@@ -50,6 +65,14 @@ export default {
     },
     ratioTwo() {
       return this.fields.imageTwoRatio ? this.fields.imageTwoRatio : '1:1'
+    },
+  },
+
+  methods: {
+    setInView(visibility) {
+      if (visibility) {
+        this.inView = visibility
+      }
     },
   },
 }

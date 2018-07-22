@@ -8,10 +8,24 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .5s ease;
+  transition: opacity 500ms cubic-bezier(.645, .045, .355, 1);
 }
 
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+/**
+ * Fade scroll transition.
+ */
+
+.js-out-of-view {
+  opacity: 0;
+  transition: opacity 900ms 100ms cubic-bezier(.645, .045, .355, 1);
+}
+
+.js-in-view {
+  opacity: 1;
+  transition: opacity 900ms 100ms cubic-bezier(.645, .045, .355, 1);
 }

@@ -1,5 +1,14 @@
 <template>
-  <section class="TextImageSplit  block  wrapper">
+  <section
+    v-observe-visibility="{
+      callback: setInView,
+      intersection: { threshold: 0.25 }
+    }"
+    :class="{
+      'js-in-view': inView,
+      'js-out-of-view': !inView
+    }"
+    class="TextImageSplit  block  wrapper">
     <div
       :class="{ 'grid--reverse': reverse }"
       class="TextImageSplit__inner  grid  grid--rigid">
@@ -33,6 +42,12 @@ export default {
     },
   },
 
+  data() {
+    return {
+      inView: false,
+    }
+  },
+
   computed: {
     image() {
       return this.fields.image && this.fields.image.fields ? this.fields.image.fields : false
@@ -45,6 +60,14 @@ export default {
     },
     text() {
       return this.fields.text ? this.fields.text : false
+    },
+  },
+
+  methods: {
+    setInView(visibility) {
+      if (visibility) {
+        this.inView = visibility
+      }
     },
   },
 }
