@@ -10,35 +10,15 @@
     <div class="Footer__right">
       <ul
         class="Footer__list">
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">Riga</a>
-        </li>
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">Valetta</a>
-        </li>
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">Reykjavik</a>
-        </li>
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">Rajastahn</a>
-        </li>
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">London</a>
-        </li>
-        <li class="Footer__listItem">
-          <a
-            href="#"
-            class="Footer__link">Lisbon</a>
+        <li
+          v-for="breakItem in breaks"
+          :key="breakItem.sys.id"
+          class="Footer__listItem">
+          <nuxt-link
+            :to="`/break/${breakItem.fields.slug}`"
+            class="Footer__link">
+            {{ breakItem.fields.title }}
+          </nuxt-link>
         </li>
       </ul>
     </div>
@@ -57,11 +37,16 @@
 </template>
 
 <script>
+import { createClient } from '@/plugins/contentful'
+
+const contentful = createClient()
+
 export default {
   name: 'Footer',
 
   data() {
     return {
+      breaks: [],
       onHome: this.$nuxt.$route.name === 'index',
     }
   },
@@ -71,6 +56,18 @@ export default {
       this.onHome = this.$nuxt.$route.name === 'index'
       return this.onHome
     },
+  },
+
+  created() {
+    return contentful
+      .getEntries({
+        content_type: 'break',
+      })
+      .then((res) => {
+        this.breaks = res.items
+        return this.breaks
+      })
+      .catch(error => console.error(error))
   },
 }
 </script>
