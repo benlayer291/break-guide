@@ -19,6 +19,8 @@ export default {
     List,
   },
 
+  transition: 'fade',
+
   asyncData({ error }) {
     return contentful
       .getEntries({

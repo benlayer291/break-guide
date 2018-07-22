@@ -55,6 +55,8 @@ export default {
     TextImageSplit,
   },
 
+  transition: 'fade',
+
   asyncData({ error, params }) {
     return contentful
       .getEntries({

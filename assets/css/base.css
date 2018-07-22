@@ -16,6 +16,7 @@
 
 @import "settings/vars";
 @import "settings/rhythm";
+@import "settings/transitions";
 @import "settings/type";
 
 /**
