@@ -4,7 +4,7 @@
     <Header />
     <nuxt/>
     <Footer />
-    <Guide />
+    <!-- <Guide /> -->
   </div>
 </template>
 
