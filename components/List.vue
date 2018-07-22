@@ -114,7 +114,7 @@ export default {
 .List__item {
   display: inline;
   height: auto;
-  margin-bottom: 0;
+  margin-bottom: var(--bsu);
 }
 
 .List__item-link {
