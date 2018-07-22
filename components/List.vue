@@ -1,5 +1,6 @@
 <template>
   <section
+    :class="{ 'is-hidden': swiper === null }"
     class="List"
   >
     <div
@@ -93,9 +94,19 @@ export default {
 
 .List {
   min-height: 100vh;
+  opacity: 1;
+  transition: opacity 900ms cubic-bezier(.645, .045, .355, 1);
+
+  &.is-hidden {
+    opacity: 0;
+  }
 }
 
 .List__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   padding-right: var(--bsu);
