@@ -68,8 +68,8 @@ export default {
       direction: 'vertical',
       centeredSlides: true,
       freeMode: true,
-      freeModeMomentumRatio: 1,
-      freeModeMomentumVelocityRatio: 0.5,
+      freeModeMomentumRatio: 0.1,
+      freeModeMomentumVelocityRatio: 0.1,
       mousewheel: {
         forceToAxis: true,
         releaseOnEdges: true,
@@ -141,6 +141,7 @@ export default {
 
 .List__item-link--home {
   color: color-mod(var(--blue) a(.25));
+  transition: color .9s ease;
 
   .swiper-slide-active & {
     color: var(--black);
