@@ -26,7 +26,10 @@
         :fields="contentItem.fields"
       />
     </div>
-    <Next />
+    <Next
+      :breaks="breaks"
+      :current="id"
+    />
   </main>
 </template>
 
@@ -56,17 +59,20 @@ export default {
     return contentful
       .getEntries({
         content_type: 'break',
-        'fields.slug': params.slug,
       })
       .then((res) => {
-        const data = res.items[0]
-        const title = data.fields.title ? data.fields.title : false
-        const displayTitle = data.fields.displayTitle ? data.fields.displayTitle : false
-        const content = data.fields.content ? data.fields.content : false
-        const metaDescription = data.fields.metaDescription ? data.fields.metaDescription : false
-        const metaImage = data.fields.metaImage ? data.fields.metaImage : false
+        const breaks = res.items
+        const breakItem = breaks.filter(breakItem => breakItem.fields.slug === params.slug)[0]
+        const id = breakItem.sys.id ? breakItem.sys.id : false
+        const title = breakItem.fields.title ? breakItem.fields.title : false
+        const displayTitle = breakItem.fields.displayTitle ? breakItem.fields.displayTitle : false
+        const content = breakItem.fields.content ? breakItem.fields.content : false
+        const metaDescription = breakItem.fields.metaDescription ? breakItem.fields.metaDescription : false
+        const metaImage = breakItem.fields.metaImage ? breakItem.fields.metaImage : false
 
         return {
+          id,
+          breaks,
           title,
           displayTitle,
           content,
