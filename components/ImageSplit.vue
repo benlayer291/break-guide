@@ -6,14 +6,22 @@
           v-if="imageOne"
           :class="`media--${ratioOne}`"
           class="media"
-        />
+        >
+          <img
+            :src="imageOne.file.url"
+            :alt="imageOne.title">
+        </div>
       </div>
       <div class="ImageSplit__item  grid__item  u-1/2@sm">
         <div
           v-if="imageTwo"
           :class="`media--${ratioTwo}`"
           class="media"
-        />
+        >
+          <img
+            :src="imageTwo.file.url"
+            :alt="imageTwo.title">
+        </div>
       </div>
     </div>
   </section>
@@ -32,16 +40,16 @@ export default {
 
   computed: {
     imageOne() {
-      return this.fields.imageOne ? this.fields.imageOne : ''
+      return this.fields.imageOne && this.fields.imageOne.fields ? this.fields.imageOne.fields : false
     },
     ratioOne() {
-      return this.fields.ratioOne ? this.fields.ratioOne : '1:1'
+      return this.fields.imageOneRatio ? this.fields.imageOneRatio : '1:1'
     },
     imageTwo() {
-      return this.fields.imageTwo ? this.fields.imageTwo : ''
+      return this.fields.imageTwo && this.fields.imageTwo.fields ? this.fields.imageTwo.fields : false
     },
     ratioTwo() {
-      return this.fields.ratioTwo ? this.fields.ratioTwo : '1:1'
+      return this.fields.imageTwoRatio ? this.fields.imageTwoRatio : '1:1'
     },
   },
 }

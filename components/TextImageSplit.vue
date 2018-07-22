@@ -5,13 +5,18 @@
       class="TextImageSplit__inner  grid  grid--rigid">
       <div
         class="TextImageSplit__item  grid__item  u-1/2@sm">
-        <p>{{ text }}</p>
+        <p v-if="text">{{ text }}</p>
       </div>
       <div class="TextImageSplit__item  grid__item  u-1/2@sm">
         <div
+          v-if="image"
           :class="`media--${ratio}`"
           class="media"
-        />
+        >
+          <img
+            :src="image.file.url"
+            :alt="image.title">
+        </div>
       </div>
     </div>
   </section>
@@ -30,16 +35,16 @@ export default {
 
   computed: {
     image() {
-      return this.fields.image ? this.fields.image : ''
+      return this.fields.image && this.fields.image.fields ? this.fields.image.fields : false
     },
     ratio() {
-      return this.fields.ratio ? this.fields.ratio : '1:1'
+      return this.fields.imageRatio ? this.fields.imageRatio : '1:1'
     },
     reverse() {
       return this.fields.reverse ? this.fields.reverse : false
     },
     text() {
-      return this.fields.text ? this.fields.text : ''
+      return this.fields.text ? this.fields.text : false
     },
   },
 }

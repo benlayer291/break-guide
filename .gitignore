@@ -12,3 +12,6 @@ dist
 
 # vscode specific
 .vscode/*
+
+# env
+.keys.json

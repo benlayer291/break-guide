@@ -8,190 +8,25 @@
     >
       <ul class="List__items  List__wrapper  swiper-wrapper">
         <li class="List__item  t-h1  swiper-slide">
-          <span
-            class="List__item-link"
-          >
+          <span class="List__item-link--home">
             break
           </span>
         </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(1)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(2)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(3)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(4)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(5)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(6)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(7)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
-        <li
-          class="List__item  t-h1  swiper-slide">
-          <span
-            @mouseenter="showImage(8)"
-            @mouseleave="hideImage()">
-            <nuxt-link
-              to="/break/slug"
-              class="List__item-link"
-            >
-              Slide
-            </nuxt-link>
-          </span>
-        </li>
+        <ListItem
+          v-for="(breakItem, index) in breaks"
+          :key="breakItem.sys.id"
+          :fields="breakItem.fields"
+          :index="index"
+        />
       </ul>
       <ul class="List__images">
-        <li
-          :style="{ top: '5%', left: '40%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 1,
-            'is-active--hover': hoverIndex && hoverIndex === 1
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '10%', left: '35%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 2,
-            'is-active--hover': hoverIndex && hoverIndex === 2
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '15%', left: '30%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 3,
-            'is-active--hover': hoverIndex && hoverIndex === 3
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '20%', left: '25%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 4,
-            'is-active--hover': hoverIndex && hoverIndex === 4
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '25%', left: '20%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 5,
-            'is-active--hover': hoverIndex && hoverIndex === 5
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '30%', left: '15%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 6,
-            'is-active--hover': hoverIndex && hoverIndex === 6
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '35%', left: '10%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 7,
-            'is-active--hover': hoverIndex && hoverIndex === 7
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
-        <li
-          :style="{ top: '40%', left: '5%' }"
-          :class="{
-            'is-active': swiper && swiper.activeIndex === 8,
-            'is-active--hover': hoverIndex && hoverIndex === 8
-          }"
-          class="List__image">
-          <img src=" http://www.placecage.com/g/200/300">
-        </li>
+        <ListItemImage
+          v-for="(breakItem, index) in breaks"
+          :key="breakItem.sys.id"
+          :fields="breakItem.fields"
+          :index="index"
+          :active-index="activeIndex"
+        />
       </ul>
     </div>
   </section>
@@ -199,14 +34,28 @@
 
 <script>
 import Swiper from 'swiper'
+import ListItem from '@/components/ListItem'
+import ListItemImage from '@/components/ListItemImage'
 
 export default {
   name: 'List',
 
+  components: {
+    ListItem,
+    ListItemImage,
+  },
+
+  props: {
+    breaks: {
+      type: Array,
+      required: true,
+    },
+  },
+
   data() {
     return {
       swiper: null,
-      hoverIndex: null,
+      activeIndex: 0,
     }
   },
 
@@ -226,17 +75,11 @@ export default {
         invert: true,
       },
     })
-  },
 
-  methods: {
-    showImage(index) {
-      console.log(index)
-      this.hoverIndex = index
-    },
-
-    hideImage() {
-      this.hoverIndex = null
-    },
+    this.swiper.on('slideChange', () => {
+      this.activeIndex = this.swiper.activeIndex
+      return this.activeIndex
+    })
   },
 }
 </script>
@@ -281,6 +124,14 @@ export default {
   }
 }
 
+.List__item-link--home {
+  color: color-mod(var(--blue) a(.25));
+
+  .swiper-slide-active & {
+    color: var(--black);
+  }
+}
+
 .List__images {
   position: fixed;
   top: 0;
@@ -289,18 +140,4 @@ export default {
   left: 0;
 }
 
-.List__image {
-  position: absolute;
-  opacity: 0;
-  transition: opacity .25s ease-in-out;
-
-  &.is-active,
-  &.is-active--hover {
-    opacity: 1;
-  }
-
-  &.is-active--hover {
-    z-index: var(--z1);
-  }
-}
 </style>

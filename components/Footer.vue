@@ -1,16 +1,14 @@
 <template>
   <footer
-    :class="{'is-fixed': onHome }"
+    :class="{'is-hidden': onHome }"
     class="Footer">
     <div class="Footer__left">
       <button
-        :class="{'is-hidden': onHome }"
         class="Footer__link  Footer__link--anchor"
         type="button">Back to top</button>
     </div>
     <div class="Footer__right">
       <ul
-        :class="{'is-hidden': onHome }"
         class="Footer__list">
         <li class="Footer__listItem">
           <a
@@ -70,9 +68,8 @@ export default {
 
   watch: {
     $route() {
-      console.log('route changed')
-      this.fixed = this.$nuxt.$route.name === 'index'
-      return this.fixed
+      this.onHome = this.$nuxt.$route.name === 'index'
+      return this.onHome
     },
   },
 }
@@ -93,12 +90,8 @@ export default {
     padding: var(--bsu-xl) var(--bsu-xl) calc(var(--bsu-xl) - var(--bsu));
   }
 
-  &.is-fixed {
-    position: fixed;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  &.is-hidden {
+    display: none;
   }
 }
 
@@ -137,10 +130,6 @@ export default {
   align-items: flex-start;
   justify-content: flex-start;
   margin-bottom: 0;
-
-  &.is-hidden {
-    display: none;
-  }
 }
 
 .Footer__listItem {
@@ -166,14 +155,6 @@ export default {
   &:active {
     border-color: var(--blue);
     color: var(--blue);
-  }
-}
-
-.Footer__link--anchor {
-  display: inline-block;
-
-  &.is-hidden {
-    display: none;
   }
 }
 </style>

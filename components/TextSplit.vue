@@ -26,10 +26,10 @@ export default {
 
   computed: {
     textOne() {
-      return this.fields.textOne ? this.fields.textOne : ''
+      return this.fields.textOne ? this.fields.textOne : false
     },
     textTwo() {
-      return this.fields.textTwo ? this.fields.textTwo : ''
+      return this.fields.textTwo ? this.fields.textTwo : false
     },
   },
 }

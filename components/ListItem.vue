@@ -1,71 +1,49 @@
 <template>
-  <li
-    ref="listItem"
-    class="List__slide">
-    <h1>Slide 1</h1>
+  <li class="List__item  t-h1  swiper-slide">
+    <span
+      @mouseenter="setHoverIndex(index)"
+      @mouseleave="setHoverIndex(null)">
+      <nuxt-link
+        :to="slug"
+        class="List__item-link"
+      >
+        {{ title }}
+      </nuxt-link>
+    </span>
   </li>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'ListItem',
 
-  data() {
-    return {
-      observer: null,
-    }
+  props: {
+    fields: {
+      type: Object,
+      required: true,
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
 
-  mounted() {
-    this.observer = new IntersectionObserver(entries => console.log(entries), {
-      threshold: [0, 1],
-    })
-    this.observer.observe(this.$refs.listItem)
+  computed: {
+    slug() {
+      return this.fields.slug ? `/break/${this.fields.slug}` : ''
+    },
+
+    title() {
+      return this.fields.title ? this.fields.title : ''
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      setHoverIndex: 'list/setHoverIndex',
+    }),
   },
 }
 </script>
-
-<style lang="postcss">
-@import "../assets/css/settings/vars";
-
-.List {
-  position: relative;
-  min-height: 100vh;
-}
-
-.List__wrapper {
-  padding-top: 50vh;
-  padding-right: var(--bsu);
-  padding-left: var(--bsu);
-
-  @media (--sm) {
-    padding-right: var(--bsu-xl);
-    padding-left: var(--bsu-xl);
-  }
-}
-
-.List__slides {
-  position: relative;
-  z-index: var(--z1);
-}
-
-.List__slide {
-  position: relative;
-}
-
-.List__images {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: 0;
-}
-
-.List__image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-}
-</style>

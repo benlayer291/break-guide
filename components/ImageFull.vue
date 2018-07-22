@@ -3,7 +3,11 @@
     <div
       :class="`media--${ratio}`"
       class="media"
-    />
+    >
+      <img
+        :src="image.file.url"
+        :alt="image.title">
+    </div>
   </section>
 </template>
 
@@ -20,10 +24,10 @@ export default {
 
   computed: {
     image() {
-      return this.fields.image ? this.fields.image : ''
+      return this.fields.image && this.fields.image.fields ? this.fields.image.fields : false
     },
     ratio() {
-      return this.fields.ratio ? this.fields.ratio : ''
+      return this.fields.imageRatio ? this.fields.imageRatio : '1:1'
     },
   },
 }

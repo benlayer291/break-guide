@@ -1,3 +1,7 @@
+const { getConfigForKeys } = require('./lib/envConfig.js')
+
+const keys = getConfigForKeys(['CTF_SPACE_ID', 'CTF_CDA_ACCESS_TOKEN'])
+
 module.exports = {
   /*
   ** Build configuration
@@ -37,6 +41,11 @@ module.exports = {
     },
   ],
   /*
+  ** Define environment variables available
+  ** in generate and browser context
+  */
+  env: keys,
+  /*
   ** Generate routes
   */
   generate: {
@@ -70,4 +79,12 @@ module.exports = {
   ** Nuxt mode
   */
   mode: 'universal',
+  /*
+  ** Plugins
+  */
+  plugins: [
+    {
+      src: '@/plugins/contentful',
+    },
+  ],
 }
