@@ -5,7 +5,8 @@
     <div class="Footer__left">
       <button
         class="Footer__link  Footer__link--anchor"
-        type="button">Back to top</button>
+        type="button"
+        @click="backToTop()">Back to top</button>
     </div>
     <div class="Footer__right">
       <ul
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import jump from 'jump.js'
 import { createClient } from '@/plugins/contentful'
 
 const contentful = createClient()
@@ -68,6 +70,23 @@ export default {
         return this.breaks
       })
       .catch(error => console.error(error))
+  },
+
+  methods: {
+    backToTop() {
+      const top = 'main'
+      const easing = function easeInOutExpo(t, b, c, d) {
+        if (t==0) return b // eslint-disable-line
+        if (t==d) return b+c // eslint-disable-line
+        if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b // eslint-disable-line
+        return c/2 * (-Math.pow(2, -10 * --t) + 2) + b // eslint-disable-line
+      }
+
+      return jump(top, {
+        duration: 250,
+        easing,
+      })
+    },
   },
 }
 </script>
