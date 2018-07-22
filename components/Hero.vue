@@ -66,12 +66,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 160px);
   padding-right: var(--bsu);
   padding-left: var(--bsu);
 
   @media (--sm) {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 220px);
     padding-right: var(--bsu-xl);
     padding-left: var(--bsu-xl);
   }
