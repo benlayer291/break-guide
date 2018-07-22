@@ -40,6 +40,10 @@ export default {
     },
   },
 
+  beforeDestroy() {
+    this.setHoverIndex(null)
+  },
+
   methods: {
     ...mapMutations({
       setHoverIndex: 'list/setHoverIndex',

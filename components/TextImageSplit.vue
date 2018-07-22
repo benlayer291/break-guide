@@ -14,7 +14,9 @@
       class="TextImageSplit__inner  grid  grid--rigid">
       <div
         class="TextImageSplit__item  grid__item  u-1/2@sm">
-        <p v-if="text">{{ text }}</p>
+        <p
+          v-if="text"
+          v-html="$md.render(text).replace('<a','<a target=_blank')" />
       </div>
       <div class="TextImageSplit__item  grid__item  u-1/2@sm">
         <div

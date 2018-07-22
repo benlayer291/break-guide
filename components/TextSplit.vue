@@ -12,11 +12,15 @@
     <div class="TextSplit__inner  grid  grid--rigid">
       <div
         class="TextSplit__item  grid__item  u-1/2@sm">
-        <p v-if="textOne">{{ textOne }}</p>
+        <p
+          v-if="textOne"
+          v-html="$md.render(textOne).replace('<a','<a target=_blank')" />
       </div>
       <div
         class="TextSplit__item  grid__item  u-1/2@sm">
-        <p v-if="textTwo">{{ textTwo }}</p>
+        <p
+          v-if="textTwo"
+          v-html="$md.render(textTwo).replace('<a','<a target=_blank')" />
       </div>
     </div>
   </section>

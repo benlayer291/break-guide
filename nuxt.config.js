@@ -80,6 +80,19 @@ module.exports = {
   */
   mode: 'universal',
   /*
+  ** Modules
+  */
+  modules: [
+    '@nuxtjs/markdownit',
+  ],
+
+  markdownit: {
+    breaks: true,
+    html: true,
+    injected: true,
+    xhtmlOut: true,
+  },
+  /*
   ** Plugins
   */
   plugins: [

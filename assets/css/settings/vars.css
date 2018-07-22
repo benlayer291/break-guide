@@ -32,7 +32,7 @@
   /* Global */
   --main-page-bg: var(--white);
   --main-page-color: var(--grey1);
-  --main-page-bg-selection: var(--blue);
+  --main-page-bg-selection: var(--black);
   --main-page-color-selection: var(--white);
 
   /* Layers */

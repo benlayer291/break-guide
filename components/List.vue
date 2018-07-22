@@ -81,6 +81,10 @@ export default {
       return this.activeIndex
     })
   },
+
+  beforeDestroy() {
+    this.swiper.destroy(true, false)
+  },
 }
 </script>
 

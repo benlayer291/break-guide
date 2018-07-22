@@ -82,6 +82,7 @@ export default {
     z-index: var(--z1);
     margin-bottom: 0;
     opacity: 1;
+    pointer-events: none;
     transition: opacity .25s ease, color .9s ease;
 
     .is-scrolled & {
