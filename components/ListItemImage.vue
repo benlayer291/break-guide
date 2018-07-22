@@ -9,8 +9,8 @@
     <style>
       .List__image--{{ index }} {
       top: 50%;
-      left: 0%;
-      width: 100%;
+      left: 5%;
+      width: 90%;
       }
 
       @media only screen and (min-width: 500px) {
