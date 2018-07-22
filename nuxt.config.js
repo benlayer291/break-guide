@@ -7,6 +7,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ['babel-polyfill', 'intersection-observer'],
     /*
     ** Run ESLint on save
     */
