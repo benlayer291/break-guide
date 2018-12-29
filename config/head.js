@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Break Guide',
+  title: 'Break',
   link: [
     {
       rel: 'stylesheet',
@@ -68,27 +68,27 @@ module.exports = {
     {
       hid: 'title',
       name: 'title',
-      content: 'Break Guide',
+      content: 'Break',
     },
     {
-      content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+      content: 'Break',
       hid: 'description',
       name: 'description',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       name: 'dcterms.Contributor',
     },
     {
-      content: 'https://break-guide.netlify.com',
+      content: 'https://break-journal.com',
       name: 'dcterms.Coverage',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       name: 'dcterms.Creator',
     },
     {
-      content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+      content: 'Break',
       name: 'dcterms.Description',
       hid: 'dcterms.Description',
     },
@@ -97,7 +97,7 @@ module.exports = {
       name: 'dcterms.Format',
     },
     {
-      content: 'https://break-guide.netlify.com',
+      content: 'https://break-journal.com',
       name: 'dcterms.Identifier',
     },
     {
@@ -105,11 +105,11 @@ module.exports = {
       name: 'dcterms.Language',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       name: 'dcterms.Publisher',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       hid: 'dcterms.Title',
       name: 'dcterms.Title',
     },
@@ -118,7 +118,7 @@ module.exports = {
       name: 'dcterms.Type',
     },
     {
-      content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+      content: 'Break',
       hid: 'og:description',
       name: 'og:description',
     },
@@ -132,15 +132,11 @@ module.exports = {
       name: 'og:locale',
     },
     {
-      content: 'https://www.instagram.com/break_guide/',
-      name: 'og:see_also',
-    },
-    {
-      content: 'Break Guide',
+      content: 'Break',
       name: 'og:site_name',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       hid: 'og:title',
       name: 'og:title',
     },
@@ -149,7 +145,7 @@ module.exports = {
       name: 'og:type',
     },
     {
-      content: 'https://break-guide.netlify.com',
+      content: 'https://break-journal.com',
       name: 'og:url',
     },
     {
@@ -157,7 +153,7 @@ module.exports = {
       name: 'twitter:card',
     },
     {
-      content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+      content: 'Break',
       hid: 'twitter:description',
       name: 'twitter:description',
     },
@@ -167,10 +163,10 @@ module.exports = {
       name: 'twitter:image',
     },
     {
-      content: 'Break Guide',
+      content: 'Break',
       hid: 'twitter:title',
       name: 'twitter:title',
     },
   ],
-  titleTemplate: '%s - break guide',
+  titleTemplate: '%s - Break',
 }
