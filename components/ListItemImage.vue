@@ -27,7 +27,9 @@
       class="media"
     >
       <img
-        :src="image.file.url"
+        :srcset="`${image.file.url}?w=300, ${image.file.url}?w=600, ${image.file.url}?w=900, ${image.file.url}?w=1200, ${image.file.url}?w=1500`"
+        :sizes="`90%, (min-width: 800px) ${width}%`"
+        :src="`${image.file.url}?w=600`"
         :alt="image.title">
     </div>
   </li>
