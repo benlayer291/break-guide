@@ -18,6 +18,13 @@
           >About
           </nuxt-link>
         </li>
+        <li class="Header__navItem">
+          <a
+            href="mailto:hello@break-journal.com"
+            class="Header__link"
+          >Contact
+          </a>
+        </li>
       </ul>
     </div>
   </header>
