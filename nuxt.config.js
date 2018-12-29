@@ -1,6 +1,6 @@
 const { getConfigForKeys } = require('./lib/envConfig.js')
 const head = require('./config/head')
-const routes = require('./config/routes')
+const { routes } = require('./config/routes')
 
 const keys = getConfigForKeys([
   'CTF_SPACE_ID',

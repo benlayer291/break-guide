@@ -1,10 +1,17 @@
 const Contentful = require('contentful')
 const { getConfigForKeys } = require('../lib/envConfig.js')
 
-const keys = getConfigForKeys(['CTF_SPACE_ID', 'CTF_CDA_ACCESS_TOKEN'])
+const keys = getConfigForKeys([
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN',
+  'CTF_CPA_ACCESS_TOKEN',
+  'CTF_CDA_HOST',
+  'CTF_CPA_HOST',
+])
 
 const contentful = Contentful.createClient({
-  accessToken: keys.CTF_CDA_ACCESS_TOKEN,
+  accessToken: process.env.NODE_ENV === 'production' ? keys.CTF_CDA_ACCESS_TOKEN : keys.CTF_CPA_ACCESS_TOKEN,
+  host: process.env.NODE_ENV === 'production' ? keys.CTF_CDA_HOST : keys.CTF_CPA_HOST,
   space: keys.CTF_SPACE_ID,
 })
 
@@ -55,5 +62,5 @@ const dynamicRoutes = () => (
 )
 
 module.exports = {
-  dynamicRoutes,
+  routes: dynamicRoutes,
 }
