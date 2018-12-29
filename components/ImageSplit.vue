@@ -17,8 +17,10 @@
           class="media"
         >
           <img
-            :src="imageOne.file.url"
-            :alt="imageOne.title">
+            :srcset="`${imageOne.file.url}?w=300 300w, ${imageOne.file.url}?w=500 500w, ${imageOne.file.url}?w=800 800w`"
+            :src="`${imageOne.file.url}?w=300`"
+            :alt="imageOne.title"
+            sizes="calc(100vw - 80px), (min-width: 800px) calc(0.5 * (100vw - (160px + 16.66%)))">
         </div>
       </div>
       <div class="ImageSplit__item  grid__item  u-1/2@sm">
@@ -28,8 +30,10 @@
           class="media"
         >
           <img
-            :src="imageTwo.file.url"
-            :alt="imageTwo.title">
+            :srcset="`${imageTwo.file.url}?w=300 300w, ${imageTwo.file.url}?w=600 600w`"
+            :src="`${imageTwo.file.url}?w=300`"
+            :alt="imageTwo.title"
+            sizes="calc(100vw - 80px), (min-width: 800px) calc(0.5 * (100vw - (160px + 16.66%)))">
         </div>
       </div>
     </div>

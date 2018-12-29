@@ -14,8 +14,10 @@
       class="media"
     >
       <img
-        :src="image.file.url"
-        :alt="image.title">
+        :srcset="`${image.file.url}?w=300 300w, ${image.file.url}?w=500 500w, ${image.file.url}?w=800 800w, ${image.file.url}?w=1000 1000w`"
+        :src="`${image.file.url}?w=300`"
+        :alt="image.title"
+        sizes="calc(100vw - 80px), (min-width: 800px) calc(100vw - (160px + 16.66%))">
     </div>
   </section>
 </template>

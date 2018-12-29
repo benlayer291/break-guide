@@ -27,7 +27,7 @@
       class="media"
     >
       <img
-        :srcset="`${image.file.url}?w=300, ${image.file.url}?w=600, ${image.file.url}?w=900, ${image.file.url}?w=1200, ${image.file.url}?w=1500`"
+        :srcset="`${image.file.url}?w=300 300w, ${image.file.url}?w=600 600w, ${image.file.url}?w=900 900w, ${image.file.url}?w=1200 1200w, ${image.file.url}?w=1500 1500w`"
         :sizes="`90%, (min-width: 800px) ${width}%`"
         :src="`${image.file.url}?w=600`"
         :alt="image.title">
