@@ -25,4 +25,8 @@ ol,
 .media,
 .button {
   margin-bottom: var(--bsu);
+
+  @media (--sm) {
+    margin-bottom: var(--bsu-lg);
+  }
 }
