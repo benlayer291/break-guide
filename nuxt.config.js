@@ -1,59 +1,14 @@
-const Contentful = require('contentful')
-
 const { getConfigForKeys } = require('./lib/envConfig.js')
+const head = require('./config/head')
+const routes = require('./config/routes')
 
-const keys = getConfigForKeys(['CTF_SPACE_ID', 'CTF_CDA_ACCESS_TOKEN'])
-
-const contentful = Contentful.createClient({
-  accessToken: keys.CTF_CDA_ACCESS_TOKEN,
-  space: keys.CTF_SPACE_ID,
-})
-
-/*
-** Nuxt generate dynamic routes helper functions
-*/
-const mapEntriesToRoutes = (entries, type = '', omittedEntries = []) => {
-  const routes = entries.map((entry) => {
-    let route
-
-    if (omittedEntries.includes(entry.fields.slug)) {
-      route = false
-    } else if (type && type !== 'page') {
-      route = `/${type}/${entry.fields.slug}`
-    } else {
-      route = `/${entry.fields.slug}`
-    }
-
-    return route
-  })
-
-  return routes
-}
-
-const getRoutesByType = type => (
-  contentful
-    .getEntries({
-      content_type: type,
-    })
-    .then((res) => {
-      const entries = res.items
-      const routes = mapEntriesToRoutes(entries, type)
-
-      return routes
-    })
-)
-
-const dynamicRoutes = () => (
-  Promise.all([
-    getRoutesByType('break'),
-    getRoutesByType('page'),
-  ]).then((res) => {
-    const routesArray = res
-    const dynamicRoutes = [].concat(...routesArray).filter(Boolean)
-
-    return dynamicRoutes
-  })
-)
+const keys = getConfigForKeys([
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN',
+  'CTF_CPA_ACCESS_TOKEN',
+  'CTF_CDA_HOST',
+  'CTF_CPA_HOST',
+])
 
 module.exports = {
   /*
@@ -98,194 +53,23 @@ module.exports = {
   ** Define environment variables available
   ** in generate and browser context
   */
-  env: keys,
+  env: {
+    accessToken: process.env.NODE_ENV === 'production' ? keys.CTF_CDA_ACCESS_TOKEN : keys.CTF_CPA_ACCESS_TOKEN,
+    host: process.env.NODE_ENV === 'production' ? keys.CTF_CDA_HOST : keys.CTF_CPA_HOST,
+    space: keys.CTF_SPACE_ID,
+  },
   /*
   ** Generate routes
   */
   generate: {
     fallback: true, // Use 404.html on Netlify
-    routes: dynamicRoutes,
+    routes,
     subFolders: false,
   },
   /*
   ** Headers of the page
   */
-  head: {
-    title: 'Break Guide',
-    link: [
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Abril+Fatface|Anonymous+Pro'
-      },
-      {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/apple-touch-icon.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/favicon-32x32.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: '/favicon-16x16.png',
-      },
-      {
-        rel: 'manifest',
-        href: '/site.webmanifest',
-      },
-      {
-        rel: 'mask-icon',
-        href: '/safari-pinned-tab.svg',
-        color: '#000000',
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'cdn.contentful.com',
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'break-guide.netlify.com',
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'images.ctfassets.net',
-      },
-      {
-        rel: 'dns-prefetch',
-        href: 'www.google-analytics.com',
-      },
-    ],
-    meta: [
-      {
-        charset: 'utf-8',
-      },
-      {
-        name: 'msapplication-TileColor',
-        content: '#ffffff',
-      },
-      {
-        name: 'theme-color',
-        content: '#ffffff',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        hid: 'title',
-        name: 'title',
-        content: 'Break Guide',
-      },
-      {
-        content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
-        hid: 'description',
-        name: 'description',
-      },
-      {
-        content: 'Break Guide',
-        name: 'dcterms.Contributor',
-      },
-      {
-        content: 'https://break-guide.netlify.com',
-        name: 'dcterms.Coverage',
-      },
-      {
-        content: 'Break Guide',
-        name: 'dcterms.Creator',
-      },
-      {
-        content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
-        name: 'dcterms.Description',
-        hid: 'dcterms.Description',
-      },
-      {
-        content: 'text/html',
-        name: 'dcterms.Format',
-      },
-      {
-        content: 'https://break-guide.netlify.com',
-        name: 'dcterms.Identifier',
-      },
-      {
-        content: 'en_GB',
-        name: 'dcterms.Language',
-      },
-      {
-        content: 'Break Guide',
-        name: 'dcterms.Publisher',
-      },
-      {
-        content: 'Break Guide',
-        hid: 'dcterms.Title',
-        name: 'dcterms.Title',
-      },
-      {
-        content: 'website',
-        name: 'dcterms.Type',
-      },
-      {
-        content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
-        hid: 'og:description',
-        name: 'og:description',
-      },
-      {
-        content: '/imgs/social-default.jpg',
-        hid: 'og:image',
-        name: 'og:image',
-      },
-      {
-        content: 'en_GB',
-        name: 'og:locale',
-      },
-      {
-        content: 'https://www.instagram.com/break_guide/',
-        name: 'og:see_also',
-      },
-      {
-        content: 'Break Guide',
-        name: 'og:site_name',
-      },
-      {
-        content: 'Break Guide',
-        hid: 'og:title',
-        name: 'og:title',
-      },
-      {
-        content: 'website',
-        name: 'og:type',
-      },
-      {
-        content: 'https://break-guide.netlify.com',
-        name: 'og:url',
-      },
-      {
-        content: 'summary_large_image',
-        name: 'twitter:card',
-      },
-      {
-        content: 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
-        hid: 'twitter:description',
-        name: 'twitter:description',
-      },
-      {
-        content: '/imgs/social-default.jpg',
-        hid: 'twitter:image',
-        name: 'twitter:image',
-      },
-      {
-        content: 'Break Guide',
-        hid: 'twitter:title',
-        name: 'twitter:title',
-      },
-    ],
-    titleTemplate: '%s - break guide',
-  },
+  head,
   /*
   ** Customize the progress bar color
   */
@@ -312,7 +96,7 @@ module.exports = {
   sitemap: {
     exclude: ['/styleguide'],
     generate: true,
-    routes: dynamicRoutes,
+    routes,
   },
 
   /*
