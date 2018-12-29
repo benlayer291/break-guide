@@ -6,8 +6,8 @@
       }"
     />
     <div
-      v-for="contentItem in content"
-      :key="contentItem.sys.id"
+      v-for="(contentItem, index) in content"
+      :key="`${contentItem.sys.id}--${index}`"
     >
       <ImageFull
         v-if="contentItem.sys.contentType.sys.id === 'imageFull'"
