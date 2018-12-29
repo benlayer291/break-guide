@@ -89,7 +89,7 @@ export default {
       const top = 'main'
 
       return jump(top, {
-        duration: 250,
+        duration: 500,
         easing,
       })
     },
