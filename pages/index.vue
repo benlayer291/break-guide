@@ -25,6 +25,7 @@ export default {
     return contentful
       .getEntries({
         content_type: 'break',
+        order: '-sys.createdAt',
       })
       .then((res) => {
         const data = res.items
