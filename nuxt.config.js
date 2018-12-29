@@ -25,7 +25,7 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
     },
@@ -34,6 +34,7 @@ module.exports = {
       require('postcss-import')(),
       require('postcss-calc')(),
       require('postcss-nested')(),
+      require('postcss-color-mod-function')(),
       require('postcss-preset-env')({
         stage: 1,
         browsers: ['last 2 versions', 'ie >= 11'],
