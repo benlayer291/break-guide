@@ -18,14 +18,6 @@
           >About
           </nuxt-link>
         </li>
-        <li>
-          <a
-            href="https://www.instagram.com/break_guide/"
-            target="_blank"
-            class="Header__link"
-          >Instagram
-          </a>
-        </li>
       </ul>
     </div>
   </header>
