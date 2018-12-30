@@ -123,7 +123,7 @@ module.exports = {
       name: 'og:description',
     },
     {
-      content: '/imgs/social-default.jpg',
+      content: '/imgs/social-default.png',
       hid: 'og:image',
       name: 'og:image',
     },
@@ -158,7 +158,7 @@ module.exports = {
       name: 'twitter:description',
     },
     {
-      content: '/imgs/social-default.jpg',
+      content: '/imgs/social-default.png',
       hid: 'twitter:image',
       name: 'twitter:image',
     },

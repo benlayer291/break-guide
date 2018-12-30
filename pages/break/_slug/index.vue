@@ -62,12 +62,12 @@ export default {
       title: this.meta && this.meta.title ? this.meta.title : 'Break',
       meta: [
         {
-          content: this.meta && this.meta.description ? this.meta.description : 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+          content: this.meta && this.meta.description ? this.meta.description : 'Break',
           hid: 'description',
           name: 'description',
         },
         {
-          content: this.meta && this.meta.description ? this.meta.description : 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+          content: this.meta && this.meta.description ? this.meta.description : 'Break',
           hid: 'dcterms.Description',
           name: 'dcterms.Description',
         },
@@ -77,12 +77,12 @@ export default {
           name: 'dcterms.Title',
         },
         {
-          content: this.meta && this.meta.description ? this.meta.description : 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+          content: this.meta && this.meta.description ? this.meta.description : 'Break',
           hid: 'og:description',
           name: 'og:description',
         },
         {
-          content: this.meta.image ? `${this.meta.image.fields.file.url}?w=438` : '/imgs/social-default.jpg',
+          content: this.meta.image ? `${this.meta.image.fields.file.url}?w=438` : '/imgs/social-default.png',
           hid: 'og:image',
           name: 'og:image',
         },
@@ -92,12 +92,12 @@ export default {
           name: 'og:title',
         },
         {
-          content: this.meta && this.meta.description ? this.meta.description : 'Break – lunch, coffee, city breaks. Curating travel, culture, & food.',
+          content: this.meta && this.meta.description ? this.meta.description : 'Break',
           hid: 'twitter:description',
           name: 'twitter:description',
         },
         {
-          content: this.meta && this.meta.image ? `${this.meta.image.fields.file.url}?w=438` : '/imgs/social-default.jpg',
+          content: this.meta && this.meta.image ? `${this.meta.image.fields.file.url}?w=438` : '/imgs/social-default.png',
           hid: 'twitter:image',
           name: 'twitter:image',
         },
