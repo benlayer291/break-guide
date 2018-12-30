@@ -75,17 +75,17 @@ export default {
         {
           content: this.meta && this.meta.description ? this.meta.description : 'Break',
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
         },
         {
           content: this.meta.image ? `${this.meta.image.fields.file.url}?w=438` : '/imgs/social-default.png',
           hid: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
         },
         {
           content: this.meta && this.meta.title ? this.meta.title : 'Break',
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
         },
         {
           content: this.meta && this.meta.description ? this.meta.description : 'Break',

@@ -120,33 +120,33 @@ module.exports = {
     {
       content: 'Break',
       hid: 'og:description',
-      name: 'og:description',
+      property: 'og:description',
     },
     {
       content: '/imgs/social-default.png',
       hid: 'og:image',
-      name: 'og:image',
+      property: 'og:image',
     },
     {
       content: 'en_GB',
-      name: 'og:locale',
+      property: 'og:locale',
     },
     {
       content: 'Break',
-      name: 'og:site_name',
+      property: 'og:site_name',
     },
     {
       content: 'Break',
       hid: 'og:title',
-      name: 'og:title',
+      property: 'og:title',
     },
     {
       content: 'website',
-      name: 'og:type',
+      property: 'og:type',
     },
     {
       content: 'https://break-journal.com',
-      name: 'og:url',
+      property: 'og:url',
     },
     {
       content: 'summary_large_image',
